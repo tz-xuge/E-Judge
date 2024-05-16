@@ -1,4 +1,4 @@
-# onlinejudge
+# E-Judge
 
 ## Project setup
 ```
