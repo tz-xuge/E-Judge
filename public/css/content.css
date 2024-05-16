@@ -1,0 +1,99 @@
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9 {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.blog-list>li:hover {
+	background-color: #fafafa;
+}
+
+.blog-title {
+	color: #3d3d3d;
+	cursor: pointer;
+}
+
+.blog-title:hover {
+	color: #00a0f0;
+}
+
+.blog-data {
+	line-height: 2.2;
+}
+
+.blog-headimg {
+	cursor: pointer;
+	width: 20px;
+	border-radius: 50%;
+}
+
+.blog-name {
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.blog-name:hover {
+	color: #00a0f0;
+}
+
+.blog-likes {
+	cursor: pointer;
+	vertical-align: middle;
+	float: right;
+}
+
+.blog-likes:hover {
+	color: #00a0f0;
+}
+
+.blog-likes>i {
+	margin-right: 4px;
+}
+
+.blog-visits {
+	cursor: pointer;
+	margin-left: 10px;
+	vertical-align: middle;
+	float: right;
+}
+
+.blog-visits>i {
+	margin-right: 4px;
+}
+
+.blog-visits:hover {
+	color: #00a0f0;
+}
+
+.blog-comment {
+	cursor: pointer;
+	margin-left: 10px;
+	vertical-align: middle;
+	float: right;
+}
+
+.blog-comment>i {
+	margin-right: 4px;
+}
+
+.blog-comment:hover {
+	color: #00a0f0;
+}
+
+.pagination{
+	margin: 0px;
+}
+
+.topic-list>tbody>tr:hover{
+	background-color: #ecf0f0;
+}

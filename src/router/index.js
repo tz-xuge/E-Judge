@@ -1,20 +1,41 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    redirect: '/login'
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "about" */ '../views/login.vue')
+  },
+  {
+    path: '/index',
+    component: () => import(/* webpackChunkName: "about" */ '../components/index.vue'),
+    children: [
+        {
+            path: '/undergraduate',
+            name:'/undergraduate',
+            component: () => import(/* webpackChunkName: "about" */ '../views/blog/blog.vue'),
+            meta: { title: 'undergraduate' }
+        },
+        {
+          path: '/postgraduate',
+          name:'/postgraduate',
+          component: () => import(/* webpackChunkName: "about" */ '../views/topic/topic.vue'),
+          meta: { title: 'postgraduate' }
+        },
+        {
+          path: '/doctor',
+          name:'doctor',
+          component: () => import(/* webpackChunkName: "about" */ '../views/profile/profile.vue'),
+          meta: { title: 'doctor' },
+          props: route => ({param: route.query.param})
+        },
+  
+  ]
+}
 ]
 
 const router = createRouter({

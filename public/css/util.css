@@ -1,0 +1,197 @@
+/*弹窗样式 start*/
+.verticalAlign{vertical-align:middle; display:inline-block; height:100%; margin-left:-1px;}
+.xcConfirm .xc_layer{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #666666; opacity: 0.5; z-index: 2147000000;}
+.xcConfirm .popBox{position: fixed; left: 50%; top: 45%; background-color: #ffffff; z-index: 2147000001; width: 570px; height: 300px; margin-left: -285px; margin-top: -150px; border-radius: 5px; font-weight: bold; color: #535e66;}
+.xcConfirm .popBox .ttBox{height: 60px; line-height: 30px; padding: 14px 30px; border-bottom: solid 1px #eef0f1;}
+.xcConfirm .popBox .ttBox .tt{font-size: 18px; display: block; float: left; height: 30px; position: relative;}
+.xcConfirm .popBox .ttBox .clsBtn{display: block; cursor: pointer; width: 12px; height: 12px; position: absolute; top: 22px; right: 30px; background: url(../img/icons.png) -48px -96px no-repeat;}
+.xcConfirm .popBox .txtBox{margin: 40px 100px; height: 100px; overflow: hidden;}
+.xcConfirm .popBox .txtBox .bigIcon{float: left; margin-right: 20px; width: 48px; height: 48px; background-image: url(../img/icons.png); background-repeat: no-repeat; background-position: 48px 0;}
+.xcConfirm .popBox .txtBox p{ height: 84px; margin-top: 16px; line-height: 26px; overflow-x: hidden; overflow-y: auto;}
+.xcConfirm .popBox .txtBox p input{width: 364px; height: 30px; border: solid 1px #eef0f1; font-size: 18px; margin-top: 6px;}
+.xcConfirm .popBox .btnArea{border-top: solid 1px #eef0f1;}
+.xcConfirm .popBox .btnGroup{float: right;}
+.xcConfirm .popBox .btnGroup .sgBtn{margin-top: 14px; margin-right: 10px;}
+.xcConfirm .popBox .sgBtn{display: block; cursor: pointer; float: left; width: 95px; height: 35px; line-height: 35px; text-align: center; color: #FFFFFF; border-radius: 5px;}
+.xcConfirm .popBox .sgBtn.ok{background-color: #0095d9; color: #FFFFFF;}
+.xcConfirm .popBox .sgBtn.cancel{background-color: #546a79; color: #FFFFFF;}
+/*弹窗样式 end*/
+
+/*侧导航栏样式 start*/
+.side-item {
+	text-align: center;
+}
+.side-item ul {
+	padding: 10px 0;
+	margin: 0;
+	list-style: none;
+}
+.side-item li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 60px;
+	cursor: pointer;
+}
+.side-item li:hover {
+	background-color: #fafafa;
+	width: 100%;
+}
+.side-item li a {
+	color: #777;
+	text-decoration: none;
+}
+.side-item li:hover a {
+	color: #000000;
+}
+/*侧导航栏样式 end*/
+
+.iframe {
+	width: 100%;
+	min-height: 696px;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.opacity-6 {
+	opacity:0.6
+}
+
+.opacity-8 {
+	opacity:0.8
+}
+
+.left-10{
+	margin-left: 10px;
+}
+
+.left-20{
+	margin-left: 20px;
+}
+
+.right-10{
+	margin-right: 10px;
+}
+
+.right-20{
+	margin-right: 20px;
+}
+
+.top-10{
+	margin-top: 10px;
+}
+
+.top-20{
+	margin-top: 20px;
+}
+
+.bottom-10{
+	margin-bottom: 10px;
+}
+
+.bottom-20{
+	margin-bottom: 20px;
+}
+
+.height-4{
+	height: 400px;
+}
+
+.height-5{
+	height: 500px;
+}
+
+.height-6{
+	height: 600px;
+}
+
+.width-4{
+	width: 40%;
+}
+
+.width-5{
+	width: 50%;
+}
+
+.width-6{
+	width: 60%;
+}
+
+.f-left {
+	float: left;
+}
+
+.f-right {
+	float: right;
+}
+
+.b-heading{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eaeaea;
+}
+
+.b-active {
+	background-color: #fafafa;
+}
+
+.b-icon{
+	position: fixed;
+	left: 50%; 
+	top: 50%;
+	z-index: 2147000001;
+	margin: 0 auto;
+	width: 256px;
+	height: 256px;
+	margin-top: -128px;
+	margin-left: -128px;
+	background-image: url(../img/loading.gif);
+}
+
+.b-none{
+	box-shadow: none;
+}
+
+.b-footer{
+	border-top: 1px solid #eaeaea;
+	background-color: #ffffff;
+	/* position:fixed; */
+	bottom:0px;
+	width:100%;
+	height: 60px;
+	z-index: 10001;
+}
+
+.b-footer span{
+	float: left;
+	margin-top: 16px;
+}
+
+.nav-a:hover{
+	background-color: #fafafa;
+	height: 52px;
+}
+@media screen and (max-width: 767px){
+	.nav-a:hover{
+		background-color: #fafafa;
+		height: 50px;
+	}
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+width:12px;
+height:12px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+-webkit-box-shadow:inset006pxrgba(0,0,0,0.3);
+border-radius:10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+border-radius:10px;
+background:rgba(0,0,0,0.1);
+-webkit-box-shadow:inset006pxrgba(0,0,0,0.5);
+}
