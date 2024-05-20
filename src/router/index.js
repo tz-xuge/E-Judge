@@ -17,22 +17,22 @@ const routes = [
         {
             path: '/undergraduate',
             name:'/undergraduate',
-            component: () => import(/* webpackChunkName: "about" */ '../views/blog/blog.vue'),
+            component: () => import(/* webpackChunkName: "about" */ '../views/undergraduate.vue'),
             meta: { title: 'undergraduate' }
         },
-        {
-          path: '/postgraduate',
-          name:'/postgraduate',
-          component: () => import(/* webpackChunkName: "about" */ '../views/topic/topic.vue'),
-          meta: { title: 'postgraduate' }
-        },
-        {
-          path: '/doctor',
-          name:'doctor',
-          component: () => import(/* webpackChunkName: "about" */ '../views/profile/profile.vue'),
-          meta: { title: 'doctor' },
-          props: route => ({param: route.query.param})
-        },
+        // {
+        //   path: '/postgraduate',
+        //   name:'/postgraduate',
+        //   component: () => import(/* webpackChunkName: "about" */ '../views/postgraduate.vue'),
+        //   meta: { title: 'postgraduate' }
+        // },
+        // {
+        //   path: '/doctor',
+        //   name:'doctor',
+        //   component: () => import(/* webpackChunkName: "about" */ '../views/doctor.vue'),
+        //   meta: { title: 'doctor' },
+        //   props: route => ({param: route.query.param})
+        // },
   
   ]
 }

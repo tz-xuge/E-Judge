@@ -14,10 +14,10 @@ export const mixin = {
 			type: type
           });
 		},
-		
+
 	//us 获取域名+端口号的根URL
-	getUSRootURL(path) {
-		var url = 
+	getURL(path) {
+		var url =
 		//'http://localhost:9527/hebeuoj/';
 		'http://localhost:8020/';
 		if(path!=null){
@@ -30,7 +30,7 @@ export const mixin = {
 
 		//rs 获取域名+端口号的根URL
 		getRSRootURL(path) {
-			var url = 
+			var url =
 			//'http://localhost:9527/hebeuoj/';
 			'http://localhost:8021/';
 			if(path!=null){
@@ -41,7 +41,7 @@ export const mixin = {
 			return url;
 	},
 
-	
+
 	updatePrintnr(num, t) {
 		if (num == t) {
 			$('#send').html("发送");
@@ -148,7 +148,7 @@ export const mixin = {
 	},
 	//判断是否为数值
 	isRealNum(val) {
-		// isNaN()函数 把空串 空格 以及NUll 按照0来处理 所以先去除，    
+		// isNaN()函数 把空串 空格 以及NUll 按照0来处理 所以先去除，
 		if (val === "" || val == null) {
 			return false;
 		}
@@ -241,7 +241,7 @@ export const mixin = {
 		return cs;
 	},
 
-	
+
 
 }
 }

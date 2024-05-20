@@ -58,7 +58,7 @@ export default {
 		}
 
 	},
-	
+
 	methods: {
 		login() {
 			var _this = this;
@@ -77,7 +77,6 @@ export default {
 				_this.notify("请先同意《使用条款》",'error')
 				return false;
 			}
-			_this.$router.push('/undergraduate');
 
 			//取消vue的自动转换
 			let param = new URLSearchParams()
@@ -85,7 +84,7 @@ export default {
 			param.append('password', _this.$data.password)
 			axios({
 				method: 'post',
-				url: this.getUSRootURL() + 'user/login',
+				url: this.getURL() + 'user/login',
 				data: param,
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded'
@@ -116,7 +115,7 @@ export default {
 		{
 			this.$router.push('/findpwd')
 		}
-            
+
 	},
 	created() {
 		//created 在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图
