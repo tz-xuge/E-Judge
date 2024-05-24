@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hebut.mapper.StudentsInfoMapper">
+
+    <resultMap id="Info" type="com.hebut.dto.StudentsInfoDTO">
+
+    </resultMap>
+
+    <select id="selectBy" resultMap="Info">
+        select
+        xs.XH,
+        xs.XM,
+        xs.XB,
+        xs.JG,
+        xs.MZ,
+        bj.BJMC,
+        bj.NJ,
+        zy.ZYMC,
+        xy.XYMC
+        from
+        hgd_bs_xsgrxx xs
+        left join hgd_bs_bjsj bj on xs.BJDM = bj.BJDM
+        left join hgd_bs_zysj zy on bj.ZYDM = zy.ZYDM
+        left join hgd_bs_xysj xy on zy.XYDM = xy.XYDM
+        <where>
+            <if test="BJMC != null and BJMC != ''">
+                AND bj.BJMC = #{BJMC}
+            </if>
+            <if test="NJ != null and NJ != ''">
+                AND bj.NJ = #{NJ}
+            </if>
+            <if test="ZYDM != null and ZYDM != ''">
+                AND zy.ZYDM = #{ZYDM}
+            </if>
+            <if test="XYDM != null and XYDM != ''">
+                AND xy.XYDM = #{XYDM}
+            </if>
+            <if test="XM != null and XM != ''">
+                AND xs.XM LIKE CONCAT('%', #{XM}, '%')
+            </if>
+        </where>
+    </select>
+
+
+    <select id="profile" resultType="com.hebut.entity.User">
+        select *
+        from admin
+        where uid = #{uid}
+    </select>
+
+
+    <resultMap id="selectXY" type="com.hebut.entity.XYSJ">
+
+    </resultMap>
+
+    <select id="selectXY" resultMap="selectXY">
+        select *
+        from hgd_bs_xysj
+    </select>
+
+    <!-- 返回list列表 -->
+    <select id="selectNJ" resultType="java.lang.String">
+        select DISTINCT NJ
+        from hgd_bs_bjsj
+        ORDER BY NJ ASC
+    </select>
+
+    <select id="selectZY" resultType="com.hebut.entity.ZYSJ">
+        select *
+        from hgd_bs_zysj
+        <where>
+            <if test="XYDM != null and XYDM != ''">
+                AND XYDM = #{XYDM}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectBJ" resultType="com.hebut.entity.BJSJ">
+        SELECT
+            BJSJ.BJMC
+        FROM
+            hgd_bs_bjsj BJSJ
+                JOIN
+            hgd_bs_zysj ZYSJ ON BJSJ.ZYDM = ZYSJ.ZYDM
+                JOIN
+            hgd_bs_xysj XYSJ ON ZYSJ.XYDM = XYSJ.XYDM
+        <where>
+            <if test="ZYDM != null and ZYDM != ''">
+                AND ZYSJ.ZYDM = #{ZYDM}
+            </if>
+            <if test="XYDM != null and XYDM != ''">
+                AND ZYSJ.XYDM = #{XYDM}
+            </if>
+            <if test="NJ != null and NJ != ''">
+                AND BJSJ.NJ = #{NJ}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

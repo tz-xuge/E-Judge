@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hebut.mapper.StudentsConsumptionRecordsMapper">
+
+    <!-- 查询所有贫困 -->
+    <resultMap id="Info" type="com.hebut.dto.StudentsInfoDTO">
+
+    </resultMap>
+
+    <select id="selectBy" resultMap="Info">
+        select
+        xs.XH,
+        xs.XM,
+        xs.XB,
+        xs.JG,
+        xs.MZ,
+        bj.BJMC,
+        bj.NJ,
+        zy.ZYMC,
+        xy.XYMC
+        from
+        hgd_bs_xsgrxx xs
+        left join hgd_bs_bjsj bj on xs.BJDM = bj.BJDM
+        left join hgd_bs_zysj zy on bj.ZYDM = zy.ZYDM
+        left join hgd_bs_xysj xy on zy.XYDM = xy.XYDM
+        where xs.XH in
+        <foreach item="item" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+<!--    <select id="selectBy" resultMap="Info">-->
+<!--        select-->
+<!--        xs.XH,-->
+<!--        xs.XM,-->
+<!--        xs.XB,-->
+<!--        xs.JG,-->
+<!--        xs.MZ,-->
+<!--        bj.BJMC,-->
+<!--        bj.NJ,-->
+<!--        zy.ZYMC,-->
+<!--        xy.XYMC-->
+<!--        from-->
+<!--        hgd_bs_xsgrxx xs-->
+<!--        left join hgd_bs_bjsj bj on xs.BJDM = bj.BJDM-->
+<!--        left join hgd_bs_zysj zy on bj.ZYDM = zy.ZYDM-->
+<!--        left join hgd_bs_xysj xy on zy.XYDM = xy.XYDM-->
+<!--    </select>-->
+
+    <!-- 近7天数据 -->
+    <resultMap id="abnormal" type="com.hebut.entity.StudentsConsumptionRecords">
+
+    </resultMap>
+
+    <select id="abnormal" resultMap="abnormal">
+        SELECT *
+        FROM hgd_bs_xsxf
+    </select>
+
+
+    <!-- 按指定时间查 -->
+    <resultMap id="selectByCondition" type="com.hebut.entity.StudentsConsumptionRecords">
+
+    </resultMap>
+
+    <select id="selectByCondition" resultMap="selectByCondition">
+        SELECT *
+        FROM hgd_bs_xsxf
+        <where>
+            <if test="XH != null and XH != ''">
+                AND XH = #{XH}
+            </if>
+            <if test="BEGIN != null and END != null and BEGIN != '' and END != ''">
+                AND XFSJ BETWEEN #{BEGIN} AND #{END}
+            </if>
+        </where>
+    </select>
+
+    <!-- 按指定时间查 -->
+    <resultMap id="selectByConditionAll" type="com.hebut.entity.StudentsConsumptionRecords">
+
+    </resultMap>
+
+    <select id="selectByConditionAll" resultMap="selectByConditionAll">
+        SELECT *
+        FROM hgd_bs_xsxf
+        <where>
+            <if test="BEGIN != null and END != null and BEGIN != '' and END != ''">
+                AND XFSJ BETWEEN #{BEGIN} AND #{END}
+            </if>
+        </where>
+    </select>
+
+
+    <!-- 近7天数据 -->
+    <resultMap id="selectByWeek" type="com.hebut.entity.StudentsConsumptionRecords">
+
+    </resultMap>
+
+    <select id="selectByWeek" resultMap="selectByWeek">
+        SELECT *
+        FROM hgd_bs_xsxf
+        <where>
+            <if test="XH != '' and XH != null">
+                AND XH = #{XH}
+            </if>
+            <if test="BEGIN != null and BEGIN != ''">
+                AND XFSJ >= DATE_SUB(#{BEGIN}, INTERVAL 7 DAY)
+            </if>
+            <if test="TIME != null and TIME != ''">
+                AND XFSJ >= DATE_SUB(#{TIME}, INTERVAL 7 DAY)
+            </if>
+        </where>
+
+    </select>
+
+    <!-- 近7天所有数据平均值 -->
+    <resultMap id="selectByWeekAll" type="com.hebut.entity.StudentsConsumptionRecords">
+
+    </resultMap>
+
+    <select id="selectByWeekAll" resultMap="selectByWeekAll">
+        SELECT *
+        FROM hgd_bs_xsxf
+        where XFSJ >= DATE_SUB(#{TIME}, INTERVAL 7 DAY)
+
+    </select>
+
+
+</mapper>

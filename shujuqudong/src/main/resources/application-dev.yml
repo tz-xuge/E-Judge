@@ -1,0 +1,31 @@
+server:
+  port: 8020
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/data_driver?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8&autoReconnect=true&failOverReadOnly=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 200MB
+
+mybatis:
+  mapper-locations: classpath:mappers/*Mapper.xml
+  type-aliases-package: com.hebut.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#showSql
+logging:
+  level:
+    com:
+      us:
+        dao: debug
+
