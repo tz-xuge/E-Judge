@@ -58,7 +58,7 @@ export default {
 		}
 
 	},
-
+	
 	methods: {
 		login() {
 			var _this = this;
@@ -94,6 +94,7 @@ export default {
 				if (res.data.status >= 0) {
 					var authorization = res.headers["authorization"];
 					_this.$store.commit('settoken', authorization);
+					_this.$store.commit('setuid', res.data.object.uid);
 					_this.$router.push('/undergraduate');
 					_this.notify(res.data.msg,'success');
 				} else {
@@ -107,15 +108,7 @@ export default {
 			//防止form冒泡
 			return false;
 		},
-		register()
-		{
-			this.$router.push('/register')
-		},
-		findpwd()
-		{
-			this.$router.push('/findpwd')
-		}
-
+            
 	},
 	created() {
 		//created 在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图

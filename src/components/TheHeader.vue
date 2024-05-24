@@ -16,9 +16,8 @@
 								
 						<ul class="nav navbar-nav navbar-right">					
 							<li>
-								<a href="#"><img v-bind:src="(user.headimg)" class="img-circle" alt="headimg">
-									 <span>{{user.name}}</span> 
-								</a>
+								<span style="float:right;margin-top:20px;">{{user.name}}</span> 
+								<el-avatar class = "header" style="background:#21B1FF;margin:10px">{{getNameLast(user.name)}}</el-avatar>							
 								
 							</li>
 						</ul>
@@ -60,6 +59,46 @@ export default {
   },
 	
 	methods: {
+
+		loadPage() {
+			var _this = this;
+			console.log(_this.$store.getters.uid)
+			axios({
+				method: 'get',
+				url: _this.getURL() + 'user/profile',
+				params: {
+					uid: _this.$store.getters.uid
+				},
+				headers: {
+					'Authorization': _this.$store.getters.token,
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
+			}).then(res=>{
+				console.log(res);
+
+				if (res.data.status >= 0) {
+					_this.$data.user = res.data.object;
+				} else {
+					_this.notify(res.data.msg,'warning');
+				}
+
+			}).catch(err=> {
+				_this.notify(err,'error');
+			});
+		},
+		getNameLast(str)
+      	{
+			if (str != null) {
+				if (str.indexOf('(') > -1 || str.indexOf('（') > -1){
+				const _str = str.split('(') || str.split('（');
+				const newStr = _str[0].substring(_str[0].length - 1);
+				return newStr;
+				}
+			else {
+				return str.substring(str.length - 1)
+			}
+			}
+      	},
 		onRoutes(index)
 		{
 			this.$router.push(index);
@@ -71,6 +110,8 @@ export default {
 		},
 		
 	created() {
+		this.loadPage()
+
 	},
 	mounted() {
 	}
@@ -83,5 +124,11 @@ export default {
 
 
 <style>
+.header {
+  float: right;
 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 </style>

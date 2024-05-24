@@ -13,6 +13,7 @@
     "bootstrap-fileinput": "^5.5.2",
     "codemirror-editor-vue3": "^2.3.0",
     "core-js": "^3.8.3",
+    "echarts": "^5.5.0",
     "element-plus": "^2.3.4",
     "element-ui": "^2.15.13",
     "jquery": "^3.2.1",
