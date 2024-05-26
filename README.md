@@ -6,9 +6,9 @@
 
 后端代码在back分支的shujuqudong目录下，采用了springboot、mysql、redis等等
 
-模型文件在pythonAPI目录下
+模型接口在pythonAPI目录下
 
-
+模型训练文件在model分支下
 
 
 
